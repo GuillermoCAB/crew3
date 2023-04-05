@@ -9,7 +9,7 @@ interface ClickComponentProps {
   id: number;
   setHasWindowOpen: (bool: boolean) => void;
   removeClick: (id: number) => void;
-  formRef: any;
+  formRef: React.RefObject<HTMLDivElement>;
 }
 
 interface Comment {
@@ -56,21 +56,21 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
     setComments((prevComments) => [...prevComments, newComment]);
   };
 
-  const handleClick = (event: any) => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
 
     setHasWindowOpen(true);
     setIsActive(true);
   };
 
-  const handleClose = (event: any) => {
+  const handleClose = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
     setIsActive(false);
     setHasWindowOpen(false);
   };
 
-  const handleCloseInitial = (event: any) => {
+  const handleCloseInitial = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
     if (!thread) {

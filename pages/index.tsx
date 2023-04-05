@@ -13,12 +13,12 @@ const Home: NextPage = () => {
   const [clicks, setClicks] = useState<ClickItems[]>([]);
   const [hasWindowOpen, setHasWindowOpen] = useState<boolean>(false);
 
-  const formRef = useRef<HTMLDivElement>();
+  const formRef = useRef<null | HTMLDivElement>(null);
 
-  const handleCommentAreaClick = (event: any) => {
+  const handleCommentAreaClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (
       event.target === formRef.current ||
-      formRef.current?.contains(event.target)
+      formRef.current?.contains(event.target as Node)
     )
       return;
 
