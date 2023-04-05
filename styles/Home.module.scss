@@ -26,3 +26,25 @@
   border: 1px solid gray;
   cursor: pointer;
 }
+
+@keyframes shake {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(-23deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+  0% {
+    transform: rotate(0);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-out !important;
+}

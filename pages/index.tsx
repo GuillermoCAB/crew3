@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import styles from "../styles/Home.module.scss";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ClickComponent } from "../components/ClickComponent";
 
 type ClickItems = {
@@ -13,8 +13,22 @@ const Home: NextPage = () => {
   const [clicks, setClicks] = useState<ClickItems[]>([]);
   const [hasWindowOpen, setHasWindowOpen] = useState<boolean>(false);
 
+  const formRef = useRef<HTMLDivElement>();
+
   const handleCommentAreaClick = (event: any) => {
-    if (hasWindowOpen) return;
+    if (
+      event.target === formRef.current ||
+      formRef.current?.contains(event.target)
+    )
+      return;
+
+    if (hasWindowOpen) {
+      formRef.current?.classList.add(styles.shake);
+      return setTimeout(
+        () => formRef.current?.classList.remove(styles.shake),
+        600
+      );
+    }
 
     const newClick: ClickItems = {
       x: event.pageX,
@@ -39,6 +53,7 @@ const Home: NextPage = () => {
         <div onClick={handleCommentAreaClick} className={styles.commentArea}>
           {clicks.map((click) => (
             <ClickComponent
+              formRef={formRef}
               setHasWindowOpen={setHasWindowOpen}
               removeClick={removeClick}
               id={click.id}

@@ -9,6 +9,7 @@ interface ClickComponentProps {
   id: number;
   setHasWindowOpen: (bool: boolean) => void;
   removeClick: (id: number) => void;
+  formRef: any;
 }
 
 interface Comment {
@@ -22,6 +23,7 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
   id,
   setHasWindowOpen,
   removeClick,
+  formRef,
 }) => {
   const [thread, setThread] = useState<string>("");
   const [comments, setComments] = useState<Comment[]>([]);
@@ -120,7 +122,11 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
         </div>
       )}
       {isInitial && (
-        <div className={styles.commentContainer} style={commentsWindowStyle}>
+        <div
+          ref={formRef}
+          className={styles.commentContainer}
+          style={commentsWindowStyle}
+        >
           <button
             className={styles.closeButtonStyle}
             onClick={handleCloseInitial}
