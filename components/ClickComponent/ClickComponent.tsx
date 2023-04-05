@@ -94,14 +94,8 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
       </div>
       {isHovering && !isActive && !isInitial && (
         <div className={styles.commentContainer} style={commentsWindowStyle}>
-          <h3>{thread}</h3>
-          <ul className={styles.commentList}>
-            {comments.map((comment) => (
-              <li className={styles.comment} key={comment.id}>
-                {comment.text}
-              </li>
-            ))}
-          </ul>
+          <h3 className={styles.commentTitle}>{thread}</h3>
+          <p className={styles.comment}>{`Comments: ${comments.length}`}</p>
         </div>
       )}
       {isActive && (
@@ -110,7 +104,7 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
             &times;
           </button>
           <div className={styles.line} />
-          <h3>{thread}</h3>
+          <h3 className={styles.commentTitle}>{thread}</h3>
           <ul className={styles.commentList}>
             {comments.map((comment) => (
               <li className={styles.comment} key={comment.id}>
