@@ -1,3 +1,18 @@
 .form {
   z-index: 10;
+  display: flex;
+  background-color: aliceblue;
+
+  min-height: 36px;
+  max-height: 70px;
+
+  textarea {
+    height: fit-content;
+    border: none;
+    resize: none;
+    background-color: transparent;
+    outline: none;
+    padding: 6px;
+    font-size: 16px;
+  }
 }

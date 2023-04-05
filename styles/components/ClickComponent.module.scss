@@ -11,17 +11,6 @@
   cursor: pointer;
 }
 
-.commentContainer {
-  z-index: 1;
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  width: 300px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
 .clickContainer {
   z-index: 1;
   position: absolute;
@@ -32,13 +21,53 @@
   width: 300px;
 }
 
-.closeButtonStyle {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.commentContainer {
+  z-index: 1;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 4px 8px;
+  width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out 1 forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButtonStyle {
+  margin: 0 0 2px auto;
+
   background-color: transparent;
   border: none;
-  font-size: 18px;
+  font-size: 24px;
   cursor: pointer;
+  padding: 0;
 };
 
+.line {
+  width: 100%;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.42);
+}
+
+.commentTitle {
+  margin: 6px ;
+}
