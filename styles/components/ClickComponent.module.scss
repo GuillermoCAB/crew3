@@ -57,6 +57,15 @@
   margin: 6px ;
 }
 
+.commentList {
+  max-height: 150px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .comment {
   word-break: break-all;
 }
