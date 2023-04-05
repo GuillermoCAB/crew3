@@ -27,6 +27,10 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
 }) => {
   const [thread, setThread] = useState<string>("");
   const [comments, setComments] = useState<Comment[]>([]);
+  const viewportWidth: number = window.innerWidth;
+  const viewportHeight: number = window.innerHeight;
+  const isElementOnLeft: boolean = x <= viewportWidth / 2;
+  const isElementOnTop: boolean = y <= viewportHeight / 2;
 
   const dotStyle: CSSProperties = {
     top: y,
@@ -34,8 +38,8 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
   };
 
   const commentsWindowStyle: CSSProperties = {
-    top: y + 40,
-    left: x + 40,
+    top: isElementOnTop ? y + 40 : y - 140,
+    left: isElementOnLeft ? x + 40 : x - 310,
   };
 
   const [isHovering, setIsHovering] = useState(false);
