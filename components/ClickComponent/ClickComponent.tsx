@@ -95,7 +95,9 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
           <h3>{thread}</h3>
           <ul>
             {comments.map((comment) => (
-              <li key={comment.id}>{comment.text}</li>
+              <li className={styles.comment} key={comment.id}>
+                {comment.text}
+              </li>
             ))}
           </ul>
         </div>
@@ -109,7 +111,9 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
           <h3>{thread}</h3>
           <ul>
             {comments.map((comment) => (
-              <li key={comment.id}>{comment.text}</li>
+              <li className={styles.comment} key={comment.id}>
+                {comment.text}
+              </li>
             ))}
           </ul>
           <CommentForm onAddComment={handleAddComment} />

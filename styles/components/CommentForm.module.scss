@@ -1,9 +1,9 @@
 .form {
   z-index: 10;
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: aliceblue;
-  padding: 6px;
 
   textarea {
     width: 100%;
@@ -15,6 +15,7 @@
     box-sizing: border-box;
     overflow-y: auto;
     min-height: 40px;
+    padding: 6px;
 
     &::-webkit-scrollbar {
       display: none;
@@ -22,10 +23,35 @@
   }
 }
 
+.line {
+  width: 100%;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.bottomContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.emojiContainer {
+  position: absolute;
+  left: 80px;
+  top: 137px;
+}
+
 .addComment {
   width: 30px;
   height: 30px;
   border-radius: 100%;
   border: 1px solid gray;
+  cursor: pointer;
+}
+
+.addEmoji {
   cursor: pointer;
 }
