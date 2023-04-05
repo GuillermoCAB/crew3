@@ -4,13 +4,18 @@ import styles from "../../styles/components/CommentForm.module.scss";
 
 interface CommentFormProps {
   onAddComment: (text: string) => void;
+  placeholder?: string;
 }
 
-export const CommentForm: React.FC<CommentFormProps> = ({ onAddComment }) => {
+export const CommentForm: React.FC<CommentFormProps> = ({
+  onAddComment,
+  placeholder,
+}) => {
   const [text, setText] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (!text) return;
     onAddComment(text);
     setText("");
   };
@@ -20,10 +25,11 @@ export const CommentForm: React.FC<CommentFormProps> = ({ onAddComment }) => {
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="Write your comment"
-        rows={3}
+        placeholder={placeholder || "Write your comment"}
       />
-      <button type="submit">Add Comment</button>
+      <button className={styles.addComment} type="submit">
+        →
+      </button>
     </form>
   );
 };
