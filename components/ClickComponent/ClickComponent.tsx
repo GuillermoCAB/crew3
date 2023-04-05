@@ -124,7 +124,10 @@ export const ClickComponent: React.FC<ClickComponentProps> = ({
             &times;
           </button>
 
-          <CommentForm onAddComment={handleAddThread} />
+          <CommentForm
+            placeholder={"Start a thread"}
+            onAddComment={handleAddThread}
+          />
         </div>
       )}
     </>
